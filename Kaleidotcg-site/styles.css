@@ -161,7 +161,7 @@ body {
 
 .logo-placeholder {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    padding: 3rem 4rem;
+    padding: 1.5rem 2rem;
     border-radius: 20px;
     box-shadow: var(--shadow-lg);
     display: flex;
@@ -725,7 +725,7 @@ body {
     }
 
     .logo-placeholder {
-        padding: 2rem;
+        padding: 1rem 1.5rem;
     }
 
     .store-logo {
