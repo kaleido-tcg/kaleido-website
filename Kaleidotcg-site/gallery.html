@@ -34,26 +34,12 @@
         <div class="container">
             <h2 class="section-title">Store Gallery</h2>
             <p class="gallery-intro">Welcome to our store, our cozy trading card game space</p>
-            <div class="gallery-grid">
-                <!-- Photo placeholders - easy to replace -->
-                <div class="gallery-item">
-                    <img src="images/gallery-1.jpg" alt="Store Photo 1" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2220%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EStore Photo 1%3C/text%3E%3C/svg%3E'">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery-2.jpg" alt="Store Photo 2" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2220%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EStore Photo 2%3C/text%3E%3C/svg%3E'">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery-3.jpg" alt="Store Photo 3" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2220%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EStore Photo 3%3C/text%3E%3C/svg%3E'">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery-4.jpg" alt="Store Photo 4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2220%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EStore Photo 4%3C/text%3E%3C/svg%3E'">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery-5.jpg" alt="Store Photo 5" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2220%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EStore Photo 5%3C/text%3E%3C/svg%3E'">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery-6.jpg" alt="Store Photo 6" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2220%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EStore Photo 6%3C/text%3E%3C/svg%3E'">
-                </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- 图片将通过JavaScript动态加载 -->
+            </div>
+            <!-- 分页控件 -->
+            <div class="pagination" id="pagination">
+                <!-- 分页按钮将通过JavaScript动态生成 -->
             </div>
         </div>
     </section>
@@ -64,6 +50,7 @@
         <img class="modal-content" id="modalImage">
     </div>
 
+    <script src="gallery-data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

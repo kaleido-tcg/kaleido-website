@@ -513,6 +513,57 @@ body {
     transform: scale(1.1);
 }
 
+/* 分页控件样式 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.pagination-btn {
+    padding: 0.75rem 1.25rem;
+    border: 2px solid var(--primary-color);
+    background: var(--white);
+    color: var(--primary-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 44px;
+    text-align: center;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: var(--text-light);
+    color: var(--text-light);
+}
+
+.pagination-btn.active {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    border-color: var(--primary-color);
+    font-weight: 600;
+}
+
+.pagination-ellipsis {
+    padding: 0.75rem 0.5rem;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
 .gallery-note {
     background: #fff3cd;
     border-left: 4px solid var(--accent);
@@ -778,6 +829,17 @@ body {
 
     .gallery-grid {
         grid-template-columns: 1fr;
+    }
+
+    .pagination {
+        gap: 0.25rem;
+        margin-top: 2rem;
+    }
+
+    .pagination-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+        min-width: 36px;
     }
 
     .contact-content {
