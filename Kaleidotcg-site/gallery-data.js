@@ -11,6 +11,7 @@ const galleryImages = [
     { src: 'images/gallery-6.jpg', alt: 'Store Photo 6' },
     { src: 'images/gallery-7.jpg', alt: 'Store Photo 7' },
     { src: 'images/gallery-8.jpg', alt: 'Store Photo 8' },
+    { src: 'images/gallery-9.jpg', alt: 'Store Photo 9' },
     // 在这里添加更多图片，例如：
     // { src: 'images/gallery-7.jpg', alt: 'Store Photo 7' },
     // { src: 'images/gallery-8.jpg', alt: 'Store Photo 8' },
