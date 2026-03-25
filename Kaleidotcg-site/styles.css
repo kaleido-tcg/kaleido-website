@@ -331,17 +331,18 @@ body {
 
 .event-list {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 900px;
+    /* 自动按屏幕宽度显示 1~2 列，减少垂直滚动距离 */
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 1.25rem;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
 .event-item {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     background: var(--white);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 12px;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -375,6 +376,18 @@ body {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
     color: var(--text-dark);
+    line-height: 1.25;
+    /*
+      统一标题占用的行数高度，避免不同 event name 换行层数不一致
+      目标：最多 3 行，并强制最少 3 行的高度（2 行的会留空但视觉对齐）
+    */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    /* 兼容性：同时写标准属性，避免 linter 警告 */
+    line-clamp: 3;
+    overflow: hidden;
+    min-height: calc(1.25em * 3);
 }
 
 .event-details h4 .tournament-link {
@@ -417,6 +430,50 @@ body {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+}
+
+.google-calendar {
+    /* 让日历尽量铺满屏幕宽度（打破 .container 的 max-width 限制） */
+    max-width: none;
+    width: 100vw;
+    margin: 2.5rem calc(50% - 50vw) 0;
+    background: var(--white);
+    padding: 1.25rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.google-calendar h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.google-calendar p {
+    color: var(--text-light);
+    margin-bottom: 1.25rem;
+}
+
+.google-calendar iframe {
+    width: 100% !important;
+    border: 0;
+    border-radius: 10px;
+    height: 520px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 更小屏幕进一步压缩高度，避免排版撑破 */
+@media (max-width: 480px) {
+    .google-calendar {
+        width: 100vw;
+        margin: 2rem calc(50% - 50vw) 0;
+        padding: 1rem;
+    }
+
+    .google-calendar iframe {
+        height: 380px;
+    }
 }
 
 .special-events {
@@ -825,6 +882,20 @@ body {
     .event-logo {
         width: 100px;
         height: 100px;
+    }
+
+    .event-details h4 {
+        font-size: 1.15rem;
+        min-height: calc(1.25em * 3);
+    }
+
+    .google-calendar {
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .google-calendar iframe {
+        height: 450px;
     }
 
     .gallery-grid {
