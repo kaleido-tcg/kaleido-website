@@ -872,6 +872,13 @@ body {
         padding: 1.5rem;
     }
 
+    /* 移动端强制单列，避免卡片最小宽度导致挤压/溢出 */
+    .event-list {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        max-width: 100%;
+    }
+
     .event-day {
         width: 80px;
         min-width: 80px;
@@ -892,6 +899,7 @@ body {
     .google-calendar {
         padding: 1.5rem;
         margin-top: 2rem;
+        max-width: 100%;
     }
 
     .google-calendar iframe {
