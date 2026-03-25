@@ -433,10 +433,10 @@ body {
 }
 
 .google-calendar {
-    /* 让日历尽量铺满屏幕宽度（打破 .container 的 max-width 限制） */
-    max-width: none;
-    width: 100vw;
-    margin: 2.5rem calc(50% - 50vw) 0;
+    /* 与上方 events 保持一致的居中宽度 */
+    max-width: 1100px;
+    width: 100%;
+    margin: 2.5rem auto 0;
     background: var(--white);
     padding: 1.25rem;
     border-radius: 12px;
@@ -466,8 +466,8 @@ body {
 /* 更小屏幕进一步压缩高度，避免排版撑破 */
 @media (max-width: 480px) {
     .google-calendar {
-        width: 100vw;
-        margin: 2rem calc(50% - 50vw) 0;
+        width: 100%;
+        margin: 2rem auto 0;
         padding: 1rem;
     }
 
