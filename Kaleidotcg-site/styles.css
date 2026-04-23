@@ -338,6 +338,85 @@ body {
     margin: 0 auto;
 }
 
+/* 分组后的事件列表样式：信息密度更高，层级更清晰 */
+.event-list.event-list-grouped {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.day-group {
+    background: var(--white);
+    border: 1px solid #ebeef5;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 1rem 1.25rem;
+}
+
+.day-group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #edf1f7;
+}
+
+.day-group-title {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.day-group-count {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.day-events {
+    display: grid;
+    gap: 0.25rem;
+}
+
+.event-list-grouped .day-events .event-item {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 1px dashed #e8ebf2;
+    padding: 0.85rem 0;
+    gap: 1rem;
+}
+
+.event-list-grouped .day-events .event-item:last-child {
+    border-bottom: none;
+}
+
+.event-list-grouped .day-events .event-item:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.event-list-grouped .day-events .event-day {
+    display: none;
+}
+
+.event-list-grouped .day-events .event-details h4 {
+    font-size: 1.12rem;
+    min-height: auto;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+}
+
+.event-list-grouped .day-events .event-details p {
+    margin-bottom: 0;
+}
+
+.event-list-grouped .day-events .event-logo {
+    width: 88px;
+    height: 88px;
+    padding: 0.6rem;
+}
+
 .event-item {
     display: flex;
     gap: 1.5rem;
@@ -436,7 +515,7 @@ body {
     /* 与上方 events 保持一致的居中宽度 */
     max-width: 1100px;
     width: 100%;
-    margin: 2.5rem auto 0;
+    margin: 0.25rem auto 0;
     background: var(--white);
     padding: 1.25rem;
     border-radius: 12px;
@@ -877,6 +956,31 @@ body {
         grid-template-columns: 1fr;
         gap: 1.25rem;
         max-width: 100%;
+    }
+
+    .day-group {
+        padding: 0.85rem 1rem;
+    }
+
+    .day-group-title {
+        font-size: 1.08rem;
+    }
+
+    .event-list-grouped .day-events .event-item {
+        flex-direction: row;
+        align-items: center;
+        padding: 0.75rem 0;
+        gap: 0.75rem;
+    }
+
+    .event-list-grouped .day-events .event-details h4 {
+        font-size: 1rem;
+        min-height: auto;
+    }
+
+    .event-list-grouped .day-events .event-logo {
+        width: 72px;
+        height: 72px;
     }
 
     .event-day {

@@ -304,8 +304,65 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
+// Event Schedule按星期分组显示（保留所有活动，但让列表更清晰）
+function initEventScheduleGrouping() {
+    const eventList = document.querySelector('.event-list');
+    if (!eventList) return;
+
+    const eventItems = Array.from(eventList.querySelectorAll('.event-item'));
+    if (eventItems.length === 0) return;
+
+    const dayOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const groupedEvents = new Map();
+
+    eventItems.forEach(item => {
+        const dayEl = item.querySelector('.event-day');
+        const day = dayEl ? dayEl.textContent.trim() : 'Other';
+        if (!groupedEvents.has(day)) groupedEvents.set(day, []);
+        groupedEvents.get(day).push(item);
+    });
+
+    const orderedDays = [
+        ...dayOrder.filter(day => groupedEvents.has(day)),
+        ...Array.from(groupedEvents.keys()).filter(day => !dayOrder.includes(day))
+    ];
+
+    eventList.classList.add('event-list-grouped');
+    eventList.innerHTML = '';
+
+    orderedDays.forEach(day => {
+        const dayGroup = document.createElement('section');
+        dayGroup.className = 'day-group';
+
+        const dayHeader = document.createElement('div');
+        dayHeader.className = 'day-group-header';
+
+        const dayTitle = document.createElement('h4');
+        dayTitle.className = 'day-group-title';
+        dayTitle.textContent = day;
+
+        const dayCount = document.createElement('span');
+        dayCount.className = 'day-group-count';
+        const count = groupedEvents.get(day).length;
+        dayCount.textContent = `${count} event${count > 1 ? 's' : ''}`;
+
+        dayHeader.appendChild(dayTitle);
+        dayHeader.appendChild(dayCount);
+
+        const dayEvents = document.createElement('div');
+        dayEvents.className = 'day-events';
+        groupedEvents.get(day).forEach(item => dayEvents.appendChild(item));
+
+        dayGroup.appendChild(dayHeader);
+        dayGroup.appendChild(dayEvents);
+        eventList.appendChild(dayGroup);
+    });
+}
+
 // 观察所有需要动画的元素
 document.addEventListener('DOMContentLoaded', () => {
+    initEventScheduleGrouping();
+
     const animatedElements = document.querySelectorAll('.event-item, .gallery-item, .contact-item, .hours-item');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
